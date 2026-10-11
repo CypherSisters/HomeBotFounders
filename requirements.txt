@@ -1,0 +1,109 @@
+# PuffPAI Requirements
+# Python 3.10+
+
+# Vector Database
+chromadb>=1.5.0,<2.0
+
+# LangChain Framework
+langchain>=1.2.0,<2.0
+langchain-community>=0.4.0,<1.0
+langchain-ollama>=1.0.0,<2.0
+langgraph>=1.0.0,<2.0
+
+# Web Framework
+flask>=3.0.0,<4.0
+
+# HTTP Requests
+requests>=2.31.0,<3.0
+
+# Zone 3 / AdGuard Home bootstrap (scripts/zone3_bootstrap_adguard.py).
+# It hashes the generated AdGuard admin password before writing the seed
+# config, so the installer cannot complete --with-zone3 without it. Wheels
+# exist for linux/arm64, so no build step on the Jetson.
+bcrypt>=4.1.0,<5.0
+
+# Home Assistant WebSocket event listener (puffpai.ha_events).
+# Pure-Python, no build step -- safe on Jetson/ARM64.
+websocket-client>=1.7.0,<2.0
+
+# HTML Parsing
+beautifulsoup4>=4.12.0,<5.0
+
+# Web Search
+ddgs>=9.0.0,<10.0
+
+# Image Processing
+Pillow>=12.0.0,<13.0
+# HEIC/HEIF (iPhone photos) — PIL cannot open these without it
+pillow-heif>=0.18.0
+
+# PDF Extraction
+pypdf>=6.0.0,<7.0
+
+# Document Parsing (docx/pdf/xlsx/pptx extraction)
+python-docx>=1.1.0
+pdfplumber>=0.11.0
+openpyxl>=3.1.0
+python-pptx>=1.0.0
+
+# OCR (photo uploads, scanned PDFs). These are thin wrappers over system
+# binaries that apt must also provide — tesseract-ocr for pytesseract,
+# poppler-utils for pdf2image (provision_orin.sh installs both). Required
+# here so a plain install supports photo and scanned-PDF uploads.
+pytesseract>=0.3.10
+pdf2image>=1.17.0
+
+# Audio I/O (optional — voice features)
+sounddevice>=0.4.6,<1.0
+
+# Encryption -- vault DEK (AES-256-GCM), PBKDF2-HMAC-SHA256 / scrypt key
+# derivation, and the app-data log envelope. No X.509, no PKCS#7/CMS, no cert-chain
+# verification anywhere in this tree.
+#
+# The floor is 48.0.1, not 41.0.0: every wheel below it statically links an
+# OpenSSL predating the 2026-06-09 secadv (GHSA-537c-gmf6-5ccf), which is the
+# one advisory that applies regardless of which APIs you call. 49.0.0 and
+# 50.0.0 additionally close PYSEC-2026-3554/3553 (X.509 name-constraint escape,
+# path-building DoS) and PYSEC-2026-3552 (PKCS#7 EnvelopedData decrypt oracle) --
+# unreachable here, but taken anyway because nothing costs us to take them.
+#
+# The range resolves to 50.0.1 on every platform that publishes a wheel for it,
+# including the Orin (cp39-abi3 manylinux2014_aarch64, cp310-compatible). Only
+# 32-bit Windows and Intel macOS have no 49+/50+ wheel and land on 48.0.1.
+# DO NOT lower the floor without re-checking the advisories above.
+cryptography>=48.0.1,<51.0
+
+# Utilities
+python-dotenv>=1.0.0,<2.0
+pydantic>=2.0.0,<3.0
+
+# Desktop Packaging (optional — build only)
+pyinstaller>=6.0.0,<7.0
+
+# Optional: Development Tools
+pytest>=9.0.0,<10.0
+black>=26.0.0,<27.0
+flake8>=7.0.0,<8.0
+mypy>=1.5.0,<2.0
+
+# Secrets provider: OS keychain backend
+keyring>=25.0
+
+# Embeddings — LEGACY FALLBACK, deliberately NOT installed by default.
+# The default embedding backend (models.embedding_backend =
+# "sentence_transformers") needs sentence-transformers, which pulls PyTorch.
+# On Jetson/ARM64 a plain `pip install` gets a CPU-only torch (or fails), so
+# it is declared as an optional extra instead of a hard requirement:
+#
+#     pip install -e ".[embeddings-legacy]"     # laptop / x86
+#     # Jetson: install torch from NVIDIA's wheel index FIRST, then the above
+#
+# The Orin target is models.embedding_backend = "ollama" (no torch at all),
+# which is correct only after a full re-index. See
+# src/puffpai/embeddings.py.
+
+# OCR is in the main list (see "OCR" above): the appliance ships with
+# photo/scanned-doc upload enabled. The ".[ocr]" extra in setup.py installs
+# the same packages.
+# Without the apt-side binaries, image uploads and scanned-PDF extraction
+# degrade to empty text rather than failing loudly.
