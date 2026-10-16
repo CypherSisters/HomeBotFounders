@@ -249,6 +249,7 @@ the router, and protection is off in the seeded configuration
 |---|---|
 | **HomeBot Founders Edition** (this one) | You have a Jetson AGX Orin 64 GB and want the complete build, installed and tuned for that board |
 | [`CypherSisters/HomeBotBuild`](https://github.com/CypherSisters/HomeBotBuild) | You want HomeBot on a Windows or Linux PC you already own (64-bit Windows 10/11 or Linux); its setup wizard sizes the model to your machine |
+| [`CypherSisters/PuffPAIBuildBot`](https://github.com/CypherSisters/PuffPAIBuildBot) | You want to make your own private bot for something other than the home, on your own computer. BuildBot is the bot-building tool HomeBot's setup wizard comes from |
 
 More about PuffPAI: [puffpai.com](https://www.puffpai.com).
 
