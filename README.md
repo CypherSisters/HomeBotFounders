@@ -1,4 +1,4 @@
-# HomeBot Founders Edition: a private, offline home AI for the NVIDIA Jetson AGX Orin
+# HomeBot Founders Edition: a private, offline-capable home AI for the NVIDIA Jetson AGX Orin
 
 **Your Hardware. Your Data. Your AI.**
 
@@ -16,10 +16,10 @@ See [Which repository](#which-repository).
 
 ## First use: emergency preparedness
 
-A cloud assistant stops when the internet does. HomeBot does not: the models,
-the voice and the knowledge search run on the Orin, and core features work with
-the internet unplugged. (It still needs power; a UPS is optional and not
-integrated, see [`docs/HARDWARE.md`](docs/HARDWARE.md).)
+A cloud assistant stops when the internet does. HomeBot works with the internet
+off: the models, the voice and the knowledge search run on the Orin. How much it
+can do offline depends on the build. (It still needs power; a UPS is optional
+and not integrated, see [`docs/HARDWARE.md`](docs/HARDWARE.md).)
 
 **An offline library you choose.** [`docs/KNOWLEDGE_PACKS.md`](docs/KNOWLEDGE_PACKS.md)
 lists 66 Kiwix packs in ten groups, each with its official download, size and
