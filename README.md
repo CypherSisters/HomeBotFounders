@@ -69,6 +69,51 @@ But it's built to be anything you want.
 
 Home, Chat and Settings, taken on a test machine with a small local model and nothing else connected. The calendar answer comes straight from the calendar; the dinner ideas come from the model, on the machine.
 
+## How it fits together
+
+<picture>
+  <source media="(max-width: 700px)" srcset="docs/images/architecture-phone.svg">
+  <img src="docs/images/architecture.svg" alt="HomeBot Founders architecture: your home network with phones, browsers, Home Assistant and a TV around one Jetson AGX Orin. On the Orin, the Vault keeps, the Brain thinks and the Bridge is the only way out. Every internet service sits behind its own Bridge switch, and each ships shut." width="100%">
+</picture>
+
+One Jetson AGX Orin runs the voice, the models, the house control and the library. Solid boxes are ports open to your home network, dashed boxes listen on the box only, and the orange dots are the parts you add yourself. More detail, with the request flows: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
+<details>
+<summary><b>Everything it can do, in one list</b></summary>
+
+Everything below is in this repository. Rows marked **(optional)** are pieces you set up or switch on yourself. Every registered way out to the internet is a named Bridge switch, and each one ships shut. Two paths are not registered, and the Spotify and DNS filter rows say which. Nothing leaves your computer without your consent.
+
+| Capability | How it works |
+|---|---|
+| Voice | Say "hey puffpai". Whisper turns speech into text on the Orin, the brain answers, and Piper speaks up to two sentences while the full answer goes on screen. Say "stop" to cut it off. |
+| Chat | The dashboard on `:3003` talks to the same local models, from the wall screen, a browser or a phone. |
+| One conversation | Voice, chat and phone turns land in one household thread, so you can start by voice and finish in chat. |
+| Send to Puff | A phone page on your home Wi-Fi: send photos and documents, type to it, or leave a voice memo. A phone joins with a code from the dashboard. |
+| The agent team | Seven agents. Concierge talks to you and holds no keys. Steward runs the house and media. Archivist keeps memory, the library and the vault. Majordomo runs reminders and scheduled work. Caretaker checks the services. Toolsmith reaches the web through the Bridge. Drawbridge reviews every change and can veto it. |
+| Planning and workflows | Multi-step asks run as a short plan of tool steps; saved workflows run on request. |
+| Skills | New abilities install only with your consent, run in a sandbox, and go out only through a Bridge switch. |
+| The Vault | Private documents and secrets live encrypted. A PIN opens a short-lived viewer for one document, and turns that carry vault contents are never saved to chat history or shown on the wall. Scrub and Vault, which moves personal details out of chat memory into the vault, is **optional** and ships off. |
+| Home Assistant control **(optional)** | Lights, plugs, climate and scenes. Drawbridge reviews each change, then the Steward, the only agent with the Home Assistant token, calls Home Assistant. Safety-critical devices need your confirmation. |
+| Provisioning and Zigbee pairing **(optional)** | New automations and pairing a Zigbee device ask for your consent, then use a Home Assistant admin credential kept in the vault. |
+| Home blueprint **(optional)** | A floorplan of your house with devices on it, and a layer showing which ones talk out. |
+| Offline library | Download the Kiwix packs you want (66 are listed with sizes and licenses); the Orin builds a full-text index and answers from them with the internet off. |
+| Your documents | Files you upload are indexed on the box, and "search my documents for X" answers from them. |
+| Books **(optional)** | A librarian over your Calibre library, also served to readers by Calibre-Web on `:8083`. |
+| Radio | Radio by genre on the house speaker. TuneIn and Radio Browser are Bridge switches. |
+| Jellyfin **(optional)** | Search and playback from your own Jellyfin on `:8096`, a container you start yourself. |
+| TV **(optional)** | Free channel lists behind their own switch, played full screen on the wall screen by the Orin's hardware decoder, or cast to a TV through Home Assistant. |
+| Apps | Alarms, calendar, FitFam, FreshTable meals and trivia. |
+| Emergency prep | A supplies inventory, alongside the offline library and maps for when the internet is down. |
+| Maps **(optional)** | Offline directions and "nearest X" from Valhalla and Photon on loopback, with a print page and a QR code for Organic Maps. You build the map data for your region; monthly updates go through a switch. |
+| Web search | Your own SearXNG on loopback, installed with the rest, closed until you open its switch. |
+| Spotify **(optional)** | Containers that make the Orin a Spotify speaker, plus voice control through the Spotify switch. While a container runs it connects on its own; stopping it is its switch. |
+| Automations | Node-RED on loopback, installed with the rest; it runs the flows you import. |
+| House DNS filter **(optional)** | AdGuard Home in Zone 3, inert until you point your router at it and turn protection on. Its upstream DNS lookups are not behind a switch. |
+| Device inventory | A list of the devices on your network. Per-device blocking is **optional** and runs only after you grant it. |
+| Wall screen **(optional)** | The dashboard full screen on a display plugged into the Orin. |
+
+</details>
+
 ## How this was built
 
 We're two people, and we vibe coded the whole thing with AI coding tools

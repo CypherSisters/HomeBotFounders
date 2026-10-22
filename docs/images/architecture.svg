@@ -1,0 +1,268 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 1000" width="1240" height="1000" role="img" aria-label="HomeBot Founders architecture. The Orin running HomeBot sits on your home network behind your router. Inside it, the Vault, Brain and Bridge zones hold the services and their ports. Phones, browsers, media apps, Home Assistant and TVs connect to it on the LAN. The only way to the internet is through Bridge switches, and every one ships shut.">
+<title>HomeBot Founders architecture</title>
+
+<style>
+  .bg{fill:#fbf8f2}
+  .t{fill:#1f1d1a;font:11.5px 'Segoe UI',Helvetica,Arial,sans-serif}
+  .tb{fill:#1f1d1a;font:600 12.5px 'Segoe UI',Helvetica,Arial,sans-serif}
+  .th{fill:#1f1d1a;font:700 15px 'Segoe UI',Helvetica,Arial,sans-serif}
+  .tt{fill:#1f1d1a;font:700 20px Georgia,'Times New Roman',serif}
+  .tm{fill:#6b655c;font:10.5px 'Segoe UI',Helvetica,Arial,sans-serif}
+  .ey{fill:#6b655c;font:600 11px 'Segoe UI',Helvetica,Arial,sans-serif;letter-spacing:.12em}
+  .cv{fill:#b8462f}.cr{fill:#2c6894}.cg{fill:#2a7d61}.cs{fill:#8a8378}
+  .net{fill:#f1ede5;stroke:#d9d2c5;stroke-width:1}
+  .lan{fill:#f7f4ee;stroke:#1f1d1a;stroke-width:1.2;stroke-dasharray:2 4}
+  .box{fill:#ffffff;stroke:#1f1d1a;stroke-width:1.2}
+  .orin{fill:#ffffff;stroke:#1f1d1a;stroke-width:2}
+  .shut{fill:#ffffff;stroke:#8a8378;stroke-width:1.2;stroke-dasharray:4 3}
+  .zv{fill:#f7e4dd;stroke:#b8462f;stroke-width:1.4}
+  .zr{fill:#e1ecf5;stroke:#2c6894;stroke-width:1.4}
+  .zg{fill:#ddefe6;stroke:#2a7d61;stroke-width:1.4}
+  .ilan{fill:#ffffff;stroke:#1f1d1a;stroke-width:1}
+  .ilo{fill:#ffffff;stroke:#1f1d1a;stroke-width:1;stroke-dasharray:3 2.5}
+  .iin{fill:#ffffff;stroke:none}
+  .key{fill:#ffffff;stroke:#d9d2c5;stroke-width:1}
+  .opt{fill:#d98a1c}
+  .bar{fill:#f1ede5;stroke:#d9d2c5;stroke-width:1}
+  .ln{fill:none;stroke:#1f1d1a;stroke-width:1.3}
+  .lnd{fill:none;stroke:#6b655c;stroke-width:1.2;stroke-dasharray:4 3}
+  .lng{fill:none;stroke:#2a7d61;stroke-width:1.6}
+  .ah{fill:#1f1d1a}.ahg{fill:#2a7d61}
+  @media (prefers-color-scheme: dark){
+    .bg{fill:#15171a}
+    .t,.tb,.th,.tt{fill:#ece7de}
+    .tm,.ey{fill:#a49d91}
+    .cv{fill:#e88d76}.cr{fill:#86b8de}.cg{fill:#72c9a6}.cs{fill:#8e877c}
+    .net{fill:#1b1d21;stroke:#3a3d42}
+    .lan{fill:#181a1e;stroke:#ece7de}
+    .box,.orin,.ilan,.ilo,.iin,.shut,.key{fill:#1d2024}
+    .key{stroke:#3a3d42}
+    .box,.orin,.ilan,.ilo{stroke:#ece7de}
+    .shut{stroke:#8e877c}
+    .zv{fill:#3a2621;stroke:#e88d76}
+    .zr{fill:#1c2a36;stroke:#86b8de}
+    .zg{fill:#1a3028;stroke:#72c9a6}
+    .opt{fill:#f0a640}
+    .bar{fill:#1b1d21;stroke:#3a3d42}
+    .ln{stroke:#ece7de}.lnd{stroke:#a49d91}.lng{stroke:#72c9a6}
+    .ah{fill:#ece7de}.ahg{fill:#72c9a6}
+  }
+</style>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah"/></marker>
+<marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ahg"/></marker>
+</defs>
+<rect x="0" y="0" width="1240" height="1000" class="bg"/>
+<text x="24" y="38" class="tt">HomeBot Founders: how it fits together</text>
+<text x="24" y="58" class="tm">One Jetson AGX Orin runs the voice, the models, the house control and the library. Three zones: the Vault keeps, the Brain thinks, the Bridge is the only way out.</text>
+<rect x="8" y="74" width="1224" height="156" rx="10" class="net"/>
+<text x="24" y="98" class="ey">INTERNET</text>
+<text x="124" y="98" class="tm">Reached only through a named Bridge switch. Each call is written to the egress ledger.</text>
+<text x="24" y="140" class="tb cs">Ships shut</text>
+<text x="24" y="156" class="tm">you open each</text>
+<text x="24" y="170" class="tm">one yourself</text>
+<rect x="136" y="112" width="208" height="46" rx="6" class="shut"/>
+<text x="146" y="131" class="tb">Weather + air quality</text>
+<text x="146" y="147" class="tm">forecasts, air quality</text>
+<rect x="356" y="112" width="208" height="46" rx="6" class="shut"/>
+<text x="366" y="131" class="tb">News feeds</text>
+<text x="366" y="147" class="tm">RSS headlines</text>
+<rect x="576" y="112" width="208" height="46" rx="6" class="shut"/>
+<text x="586" y="131" class="tb">Radio directories</text>
+<text x="586" y="147" class="tm">Radio Browser, TuneIn</text>
+<rect x="796" y="112" width="208" height="46" rx="6" class="shut"/>
+<text x="806" y="131" class="tb">Web search</text>
+<text x="806" y="147" class="tm">your own SearXNG</text>
+<rect x="1016" y="112" width="208" height="46" rx="6" class="shut"/>
+<text x="1026" y="131" class="tb">Web pages</text>
+<text x="1026" y="147" class="tm">fetch and reader</text>
+<rect x="136" y="168" width="208" height="46" rx="6" class="shut"/>
+<text x="146" y="187" class="tb">Free TV channels</text>
+<text x="146" y="203" class="tm">public channel lists</text>
+<rect x="356" y="168" width="208" height="46" rx="6" class="shut"/>
+<text x="366" y="187" class="tb">Map data updates</text>
+<text x="366" y="203" class="tm">monthly refresh</text>
+<rect x="576" y="168" width="208" height="46" rx="6" class="shut"/>
+<text x="586" y="187" class="tb">Place lookup</text>
+<text x="586" y="203" class="tm">geocode, geoip</text>
+<rect x="796" y="168" width="208" height="46" rx="6" class="shut"/>
+<text x="806" y="187" class="tb">Spotify control</text>
+<text x="806" y="203" class="tm">account + Web API</text>
+<rect x="1016" y="168" width="208" height="46" rx="6" class="shut"/>
+<text x="1026" y="187" class="tb">Connectivity probe</text>
+<text x="1026" y="203" class="tm">is the internet up?</text>
+<rect x="8" y="246" width="1224" height="706" rx="10" class="lan"/>
+<text x="24" y="270" class="ey">YOUR HOME NETWORK</text>
+<rect x="769" y="258" width="160" height="40" rx="6" class="box"/>
+<text x="849" y="283" class="tb" text-anchor="middle">Your router</text>
+<line x1="849" y1="258" x2="849" y2="232" class="ln" marker-end="url(#a)"/>
+<text x="857" y="241" class="tm">WAN</text>
+<line x1="849" y1="340" x2="849" y2="300" class="lng" marker-end="url(#ag)"/>
+<text x="857" y="324" class="tm cg">box egress: Bridge switches, see note</text>
+<rect x="300" y="340" width="640" height="560" rx="10" class="orin"/>
+<text x="316" y="364" class="th">Orin (HomeBot)</text>
+<text x="316" y="382" class="tm">The backend on :8000 needs its API key. The dashboard on :3003 pairs each phone with a code.</text>
+<text x="316" y="396" class="tm">Loopback services never answer the LAN. Small dots mark the parts you add yourself.</text>
+<rect x="316" y="410" width="150" height="428" rx="8" class="zv"/>
+<text x="326" y="430" class="tb cv">Vault · Zone 1</text>
+<text x="326" y="444" class="tm">encrypted, opens with a PIN</text>
+<rect x="324" y="456" width="134" height="26" rx="4" class="iin"/>
+<text x="332" y="473" class="t">Encrypted vault</text>
+<rect x="324" y="488" width="134" height="26" rx="4" class="iin"/>
+<text x="332" y="505" class="t">PIN challenge</text>
+<rect x="324" y="520" width="134" height="26" rx="4" class="iin"/>
+<text x="332" y="537" class="t">Doc view /vault/view</text>
+<rect x="324" y="552" width="134" height="26" rx="4" class="iin"/>
+<text x="332" y="569" class="t">HA admin credential</text>
+<rect x="324" y="584" width="134" height="26" rx="4" class="iin"/>
+<text x="332" y="601" class="t">Archivist holds key</text>
+<rect x="324" y="616" width="134" height="26" rx="4" class="iin"/>
+<text x="332" y="633" class="t">Scrub and Vault</text>
+<circle cx="448" cy="629" r="3.5" class="opt"/>
+<rect x="324" y="648" width="134" height="26" rx="4" class="iin"/>
+<text x="332" y="665" class="t">Private turns hidden</text>
+<rect x="324" y="680" width="134" height="26" rx="4" class="iin"/>
+<text x="332" y="697" class="t">Household profiles</text>
+<rect x="478" y="410" width="284" height="428" rx="8" class="zr"/>
+<text x="488" y="430" class="tb cr">Brain · Zone 2</text>
+<text x="488" y="444" class="tm">local models, agents, library, media</text>
+<rect x="486" y="456" width="130" height="26" rx="4" class="ilan"/>
+<text x="494" y="473" class="t">API :8000</text>
+<rect x="486" y="488" width="130" height="26" rx="4" class="ilan"/>
+<text x="494" y="505" class="t">Dashboard :3003</text>
+<rect x="486" y="520" width="130" height="26" rx="4" class="iin"/>
+<text x="494" y="537" class="t">Ollama :11434</text>
+<rect x="486" y="552" width="130" height="26" rx="4" class="iin"/>
+<text x="494" y="569" class="t">Wake + Whisper</text>
+<rect x="486" y="584" width="130" height="26" rx="4" class="iin"/>
+<text x="494" y="601" class="t">Piper speech</text>
+<rect x="486" y="616" width="130" height="26" rx="4" class="iin"/>
+<text x="494" y="633" class="t">7 agents + bus</text>
+<rect x="486" y="648" width="130" height="26" rx="4" class="iin"/>
+<text x="494" y="665" class="t">Planning loop</text>
+<rect x="486" y="680" width="130" height="26" rx="4" class="iin"/>
+<text x="494" y="697" class="t">Skills (sandboxed)</text>
+<rect x="486" y="712" width="130" height="26" rx="4" class="ilo"/>
+<text x="494" y="729" class="t">Node-RED :1880</text>
+<rect x="486" y="744" width="130" height="26" rx="4" class="iin"/>
+<text x="494" y="761" class="t">Books librarian</text>
+<rect x="624" y="456" width="130" height="26" rx="4" class="iin"/>
+<text x="632" y="473" class="t">ZIM packs you pick</text>
+<rect x="624" y="488" width="130" height="26" rx="4" class="iin"/>
+<text x="632" y="505" class="t">FTS5 search shards</text>
+<rect x="624" y="520" width="130" height="26" rx="4" class="iin"/>
+<text x="632" y="537" class="t">ChromaDB (your docs)</text>
+<rect x="624" y="552" width="130" height="26" rx="4" class="ilo"/>
+<text x="632" y="569" class="t">Valhalla :8002</text>
+<circle cx="744" cy="565" r="3.5" class="opt"/>
+<rect x="624" y="584" width="130" height="26" rx="4" class="ilo"/>
+<text x="632" y="601" class="t">Photon :2322</text>
+<circle cx="744" cy="597" r="3.5" class="opt"/>
+<rect x="624" y="616" width="130" height="26" rx="4" class="ilan"/>
+<text x="632" y="633" class="t">Jellyfin :8096</text>
+<circle cx="744" cy="629" r="3.5" class="opt"/>
+<rect x="624" y="648" width="130" height="26" rx="4" class="ilan"/>
+<text x="632" y="665" class="t">Calibre-Web :8083</text>
+<circle cx="744" cy="661" r="3.5" class="opt"/>
+<rect x="624" y="680" width="130" height="26" rx="4" class="ilan"/>
+<text x="632" y="697" class="t">librespot :40123</text>
+<circle cx="744" cy="693" r="3.5" class="opt"/>
+<rect x="624" y="712" width="130" height="26" rx="4" class="iin"/>
+<text x="632" y="729" class="t">TV player (NVDEC)</text>
+<rect x="624" y="744" width="130" height="26" rx="4" class="iin"/>
+<text x="632" y="761" class="t">Vision model</text>
+<rect x="774" y="410" width="150" height="428" rx="8" class="zg"/>
+<text x="784" y="430" class="tb cg">Bridge · Zone 3</text>
+<text x="784" y="444" class="tm">the only way out</text>
+<rect x="782" y="456" width="134" height="26" rx="4" class="iin"/>
+<text x="790" y="473" class="t">Bridge switches</text>
+<rect x="782" y="488" width="134" height="26" rx="4" class="iin"/>
+<text x="790" y="505" class="t">Egress ledger</text>
+<rect x="782" y="520" width="134" height="26" rx="4" class="iin"/>
+<text x="790" y="537" class="t">Drawbridge review</text>
+<rect x="782" y="552" width="134" height="26" rx="4" class="iin"/>
+<text x="790" y="569" class="t">Toolsmith web_fetch</text>
+<rect x="782" y="584" width="134" height="26" rx="4" class="ilo"/>
+<text x="790" y="601" class="t">SearXNG :8888</text>
+<rect x="782" y="616" width="134" height="26" rx="4" class="ilan"/>
+<text x="790" y="633" class="t">AdGuard DNS :53</text>
+<circle cx="906" cy="629" r="3.5" class="opt"/>
+<rect x="782" y="648" width="134" height="26" rx="4" class="ilan"/>
+<text x="790" y="665" class="t">AdGuard UI :3000</text>
+<circle cx="906" cy="661" r="3.5" class="opt"/>
+<rect x="782" y="680" width="134" height="26" rx="4" class="iin"/>
+<text x="790" y="697" class="t">Device inventory</text>
+<rect x="782" y="712" width="134" height="26" rx="4" class="iin"/>
+<text x="790" y="729" class="t">Per-device block</text>
+<circle cx="906" cy="725" r="3.5" class="opt"/>
+<rect x="316" y="848" width="608" height="40" rx="6" class="bar"/>
+<text x="326" y="866" class="tb">Plugged into the box</text>
+<text x="326" y="881" class="tm">USB mic array · speaker · wall screen running the kiosk (optional)</text>
+<rect x="24" y="328" width="176" height="56" rx="6" class="box"/>
+<text x="34" y="350" class="tb">Phones (paired)</text>
+<text x="34" y="367" class="tm">chat, photos, voice memos</text>
+<line x1="200" y1="356" x2="298" y2="356" class="ln" marker-end="url(#a)"/>
+<text x="249" y="350" class="tm" text-anchor="middle">:3003</text>
+<text x="249" y="370" class="tm" text-anchor="middle">pairing code</text>
+<rect x="24" y="408" width="176" height="56" rx="6" class="box"/>
+<text x="34" y="430" class="tb">Browsers</text>
+<text x="34" y="447" class="tm">the full dashboard</text>
+<line x1="200" y1="436" x2="298" y2="436" class="ln" marker-end="url(#a)"/>
+<text x="249" y="430" class="tm" text-anchor="middle">:3003</text>
+<rect x="24" y="488" width="176" height="56" rx="6" class="box"/>
+<text x="34" y="510" class="tb">Jellyfin + book apps</text>
+<text x="34" y="527" class="tm">TVs, phones, tablets</text>
+<line x1="200" y1="516" x2="298" y2="516" class="lnd" marker-end="url(#a)"/>
+<text x="249" y="510" class="tm" text-anchor="middle">:8096 :8083</text>
+<text x="249" y="530" class="tm" text-anchor="middle">optional</text>
+<rect x="24" y="568" width="176" height="56" rx="6" class="box"/>
+<text x="34" y="590" class="tb">Spotify app</text>
+<text x="34" y="607" class="tm">sees HomeBot as a speaker</text>
+<line x1="200" y1="596" x2="298" y2="596" class="lnd" marker-end="url(#a)"/>
+<text x="249" y="590" class="tm" text-anchor="middle">:40123</text>
+<text x="249" y="610" class="tm" text-anchor="middle">optional</text>
+<rect x="24" y="648" width="176" height="56" rx="6" class="box"/>
+<text x="34" y="670" class="tb">Any device on the LAN</text>
+<text x="34" y="687" class="tm">once your router uses it</text>
+<line x1="200" y1="676" x2="298" y2="676" class="lnd" marker-end="url(#a)"/>
+<text x="249" y="670" class="tm" text-anchor="middle">DNS :53</text>
+<text x="249" y="690" class="tm" text-anchor="middle">optional</text>
+<rect x="1040" y="356" width="176" height="84" rx="6" class="box"/>
+<circle cx="1204" cy="368" r="3.5" class="opt"/>
+<text x="1050" y="378" class="tb">Home Assistant</text>
+<text x="1050" y="395" class="tm">Zigbee radio, voice</text>
+<text x="1050" y="410" class="tm">satellites, TV players</text>
+<line x1="942" y1="372" x2="1038" y2="372" class="ln" marker-end="url(#a)"/>
+<text x="990" y="367" class="tm" text-anchor="middle">:8123 REST, ws</text>
+<line x1="1038" y1="400" x2="942" y2="400" class="ln" marker-end="url(#a)"/>
+<text x="990" y="395" class="tm" text-anchor="middle">:8000 /v1 Assist</text>
+<line x1="1038" y1="428" x2="942" y2="428" class="lnd" marker-end="url(#a)"/>
+<text x="990" y="423" class="tm" text-anchor="middle">:11434 optional</text>
+<line x1="1128" y1="440" x2="1128" y2="476" class="ln" marker-end="url(#a)"/>
+<text x="1136" y="462" class="tm">Zigbee</text>
+<rect x="1040" y="478" width="176" height="56" rx="6" class="box"/>
+<circle cx="1204" cy="490" r="3.5" class="opt"/>
+<text x="1050" y="500" class="tb">Zigbee devices</text>
+<text x="1050" y="517" class="tm">lights, plugs, sensors</text>
+<rect x="1040" y="562" width="176" height="56" rx="6" class="box"/>
+<circle cx="1204" cy="574" r="3.5" class="opt"/>
+<text x="1050" y="584" class="tb">TV</text>
+<text x="1050" y="601" class="tm">told to play by HA</text>
+<line x1="1038" y1="590" x2="942" y2="590" class="ln" marker-end="url(#a)"/>
+<text x="990" y="584" class="tm" text-anchor="middle">:8000 /cast/</text>
+<text x="990" y="604" class="tm" text-anchor="middle">pulls stream</text>
+<rect x="300" y="916" width="22" height="14" rx="3" class="ilan"/>
+<text x="328" y="927" class="tm">port open to the LAN</text>
+<rect x="460" y="916" width="22" height="14" rx="3" class="ilo"/>
+<text x="488" y="927" class="tm">loopback only</text>
+<rect x="580" y="916" width="22" height="14" rx="3" class="key"/>
+<text x="608" y="927" class="tm">runs inside the box</text>
+<circle cx="736" cy="923" r="3.5" class="opt"/>
+<text x="746" y="927" class="tm">optional, you set it up</text>
+<rect x="880" y="916" width="22" height="14" rx="3" class="shut"/>
+<text x="908" y="927" class="tm">switch shut</text>
+<line x1="980" y1="923" x2="1014" y2="923" class="ln" marker-end="url(#a)"/>
+<text x="1020" y="927" class="tm">who opens the connection</text>
+<text x="24" y="972" class="tm">Nothing leaves your computer without your consent. Every registered way out is a named switch, and each one ships shut.</text>
+<text x="24" y="988" class="tm">Two paths sit outside the switches: optional containers you start yourself, like the Spotify speaker, and the optional DNS filter&#x27;s upstream lookups.</text>
+</svg>
