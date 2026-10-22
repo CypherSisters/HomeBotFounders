@@ -137,7 +137,7 @@
 <rect x="486" y="584" width="130" height="26" rx="4" class="iin"/>
 <text x="494" y="601" class="t">Piper speech</text>
 <rect x="486" y="616" width="130" height="26" rx="4" class="iin"/>
-<text x="494" y="633" class="t">7 agents + bus</text>
+<text x="494" y="633" class="t">6 agents + bus</text>
 <rect x="486" y="648" width="130" height="26" rx="4" class="iin"/>
 <text x="494" y="665" class="t">Planning loop</text>
 <rect x="486" y="680" width="130" height="26" rx="4" class="iin"/>
@@ -179,9 +179,9 @@
 <rect x="782" y="488" width="134" height="26" rx="4" class="iin"/>
 <text x="790" y="505" class="t">Egress ledger</text>
 <rect x="782" y="520" width="134" height="26" rx="4" class="iin"/>
-<text x="790" y="537" class="t">Drawbridge review</text>
+<text x="790" y="537" class="t">Drawbridge agent</text>
 <rect x="782" y="552" width="134" height="26" rx="4" class="iin"/>
-<text x="790" y="569" class="t">Toolsmith web_fetch</text>
+<text x="790" y="569" class="t">Policy per switch</text>
 <rect x="782" y="584" width="134" height="26" rx="4" class="ilo"/>
 <text x="790" y="601" class="t">SearXNG :8888</text>
 <rect x="782" y="616" width="134" height="26" rx="4" class="ilan"/>
